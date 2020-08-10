@@ -1,0 +1,12 @@
+.pizarra{
+	display: grid;
+	margin: 2% auto;
+	align-content: start;
+	justify-content: space-evenly;
+	grid-template-columns: repeat(auto-fill, 250px);
+	grid-auto-rows: 1fr;
+}
+.post-it{
+	background-color: #FDFDCA;
+	padding: 10px;
+}
