@@ -1,44 +1,48 @@
 import React, { Component } from 'react';
+import BotonAgregar from './BotonAgregar';
 import Nota from './Nota'
-import Lista from './Lista'
 import './styles/Notas.css'
 
 class Pizarra extends Component{
 	state = {
 		notas:[
 			{
-				tipo:'texto',
+				tipo:  'texto',
 				texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci reprehenderit placeat quidem tenetur unde atque suscipit, consequuntur soluta blanditiis dolor alias cum nemo, fugiat distinctio ipsum perspiciatis iste, reiciendis necessitatibus?',
-				color: 'amarillo',
+				lista: [],
+				color: 0,
 			},
 			{
-				tipo:'lista',
-				texto: ['Lista 1', 'Lista 2', 'Lista 3'],
-				color: 'azul',
+				tipo:  'lista',
+				texto: '',
+				lista: ['Lista 1', 'Lista 2', 'Lista 3'],
+				color: 1,
 			},
 			{
-				tipo:'texto',
+				tipo:  'texto',
 				texto: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci reprehenderit placeat quidem tenetur unde atque suscipit, consequuntur soluta blanditiis dolor alias cum nemo, fugiat distinctio ipsum perspiciatis iste, reiciendis necessitatibus?',
-				color: 'rojo',
+				lista: [],
+				color: 2,
 			},
 			{
-				tipo:'lista',
-				texto: ['Lista 1', 'Lista 2', 'Lista 3'],
-				color: 'verde',
+				tipo:  'lista',
+				texto: '',
+				lista: ['Lista 1', 'Lista 2', 'Lista 3'],
+				color: 3,
 			},
-		]
+		],
 	};
 	render(){
 		return(
-			<div className='pizarra'>
-				{this.state.notas.map((nota) => {
-					if (nota.tipo == 'lista') {
-						return( <Lista lista = { nota } /> )
-					} else {
-						return( <Nota nota = { nota } /> )
-					}
-				})}
-			</div>
+			<React.Fragment>
+				<div className='pizarra'>
+					{this.state.notas.map((nota, index) => {
+						return( <Nota key={index} nota = { nota } /> )
+					})}
+				</div>
+
+				<BotonAgregar />
+			</React.Fragment>
 		)
 	}
 }

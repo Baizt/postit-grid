@@ -1,12 +1,33 @@
 .pizarra{
 	display: grid;
 	margin: 2% auto;
-	align-content: start;
 	justify-content: space-evenly;
 	grid-template-columns: repeat(auto-fill, 250px);
-	grid-auto-rows: 1fr;
+	align-items: flex-start;
+	grid-row-gap: 30px;
+	grid-template-rows: repeat(auto-fill, auto);
 }
 .post-it{
-	background-color: #FDFDCA;
+	background-color: #fdfdca !important;
 	padding: 10px;
+}
+.fondo-0{
+	/* Amarillo */
+	background-color: #fdfdca;
+}
+.fondo-1{
+	/* Naranja */
+	background-color: #fde5ca;
+}
+.fondo-2{
+	/* Verde */
+	background-color: #defdca;
+}
+.fondo-3{
+	/* Azul */
+	background-color: #cae0fd;
+}
+.fondo-4{
+	/* Rojo */
+	background-color: #fdcaca;
 }
