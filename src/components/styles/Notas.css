@@ -13,21 +13,21 @@
 }
 .fondo-0{
 	/* Amarillo */
-	background-color: #fdfdca;
+	background-color: #fdfdca !important;
 }
 .fondo-1{
 	/* Naranja */
-	background-color: #fde5ca;
+	background-color: #fde5ca !important;
 }
 .fondo-2{
 	/* Verde */
-	background-color: #defdca;
+	background-color: #defdca !important;
 }
 .fondo-3{
 	/* Azul */
-	background-color: #cae0fd;
+	background-color: #cae0fd !important;
 }
 .fondo-4{
 	/* Rojo */
-	background-color: #fdcaca;
+	background-color: #fdcaca !important;
 }

@@ -1,0 +1,9 @@
+.container-campo-lista{
+	margin: 3% 0;
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: 5fr 1fr;
+}
+.texto-campo-lista{
+	width: 100%;
+}

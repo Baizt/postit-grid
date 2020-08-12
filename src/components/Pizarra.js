@@ -31,7 +31,16 @@ class Pizarra extends Component{
 				color: 3,
 			},
 		],
-	};
+	}
+	handleGuardar = nota => {
+		console.log('handleGuardar', nota)
+		this.setState({
+			notas:[
+				...this.state.notas,
+				nota
+			]
+		})
+	}
 	render(){
 		return(
 			<React.Fragment>
@@ -41,7 +50,7 @@ class Pizarra extends Component{
 					})}
 				</div>
 
-				<BotonAgregar />
+				<BotonAgregar handleGuardarModal={this.handleGuardar} />
 			</React.Fragment>
 		)
 	}

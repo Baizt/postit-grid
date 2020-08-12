@@ -12,12 +12,11 @@ class ModalAgregaNotas extends Component{
 		nota:{
 			tipo:'texto',
 			texto:'',
-			lista:['', ''],
+			lista:[''],
 			color:0,
 		}
 	}
-	changeProp = (e, a) => {
-		console.log('changeProp', e, a)
+	changeProp = e => {
 		if(typeof e !== 'undefined'){
 			this.setState({
 				nota:{
@@ -27,6 +26,47 @@ class ModalAgregaNotas extends Component{
 			})
 		}
 	}
+	handleChangeLista = e => {
+		let lista = this.state.nota.lista;
+		lista[e.target.name] = e.target.value;
+		this.changeProp({
+			target:{
+				name: 'lista',
+				value: lista
+			}
+		})
+	}
+	agregaLista = e  => {
+		this.setState({
+			nota:{
+				...this.state.nota,
+				lista: [
+					...this.state.nota.lista,
+					'',
+				]
+			}
+		})
+	}
+	deleteLista = (numLista) =>{
+		let lista = this.state.nota.lista;
+		lista.splice(numLista, 1)
+		this.changeProp({
+			target:{
+				name: 'lista',
+				value: lista
+			}
+		})
+	}
+	// componentWillUnmount(){
+	// 	this.setState({
+	// 		nota:{
+	// 			tipo:'texto',
+	// 			texto:'',
+	// 			lista:[''],
+	// 			color:0,
+	// 		}
+	// 	})
+	// }
 	render(){
 		return <Modal show={this.props.show}>
 			<form action="" className="formulario-agregar">
@@ -56,21 +96,24 @@ class ModalAgregaNotas extends Component{
 				<div className="modal-body">
 					{this.state.nota.tipo === 'lista'
 						?
-						<React.Fragment>
-							{this.state.nota.lista.map((lista, index) => {
-								return(<AgregarLista key={index} />)
-							})}
-							
-						</React.Fragment>
+						<AgregarLista
+							nota={this.state.nota}
+							clickAgregarLista={this.agregaLista}
+							clickDeleteLista={this.deleteLista}
+							changeLista={this.handleChangeLista}
+						/>
 						:
 						<TextField id="texto" label="Texto de la Nota"
-						multiline rows={8} variant="outlined"
-						className="texto-nota" defaultValue=""
+						multiline rows={8} variant="outlined" name="texto"
+						className="texto-nota" value={this.state.nota.texto}
+						onChange={this.changeProp}
 						></TextField>
 					}
 				</div>
 
-				<Button className="btn-save" variant="contained" color="primary">Guardar</Button>
+				<Button className="btn-save" variant="contained" color="primary"
+					onClick={this.props.guardarAgregar.bind(null, this.state.nota)}>Guardar</Button>
+
 				<Button className="btn-cancel" variant="contained"
 					color="secondary" onClick={this.props.cancelarAgregar}>
 					Cancelar
