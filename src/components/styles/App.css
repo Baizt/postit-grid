@@ -1,5 +1,7 @@
 .App{
-  min-height: 97vh;
+  min-height: 100vh;
+  background-image: url('https://image.freepik.com/foto-gratis/brown-textura-fondo-arbol-corcho-cerca_181654-1267.jpg');
+  padding: 10% 0;
 }
 
 .App-logo {
@@ -8,6 +10,10 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .App{
+    padding: 5vh 0;
+    min-height: 90vh;
+  }
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }

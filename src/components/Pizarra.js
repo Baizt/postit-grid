@@ -33,7 +33,6 @@ class Pizarra extends Component{
 		],
 	}
 	handleGuardar = nota => {
-		console.log('handleGuardar', nota)
 		this.setState({
 			notas:[
 				...this.state.notas,
@@ -41,12 +40,26 @@ class Pizarra extends Component{
 			]
 		})
 	}
+	handleDelete = nota => {
+		let notas = this.state.notas;
+		notas.splice(nota, 1);
+		this.setState({ notas });
+	}
+
+	handleEdit = (nota, index) => {
+		console.log('handleEdit')
+		// let notas = this.state.notas;
+		// notas[index] = nota;
+		// this.setState({ notas });
+	}
 	render(){
 		return(
 			<React.Fragment>
 				<div className='pizarra'>
 					{this.state.notas.map((nota, index) => {
-						return( <Nota key={index} nota = { nota } /> )
+						return( <Nota key={index} numNota={index} nota={nota}
+								clickDeleteNota={this.handleDelete}
+								clickEditNota={this.handleEdit} /> )
 					})}
 				</div>
 

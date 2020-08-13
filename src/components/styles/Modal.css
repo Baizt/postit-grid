@@ -1,11 +1,11 @@
 .modal{
-	position: absolute;
+	position: fixed;
 	bottom: 10px;
 	right: 10px;
 	background-color: #fff;
-	min-width: 360px;
 	padding: 25px;
 	border: 1px solid #000;
+	
 }
 .muestra-color{
 	width: 30px;
